@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Onest:wght@400;500;600;700;800&family=Unbounded:wght@400;500;600;700&display=swap" rel="stylesheet"><style>
+img.gconf-shot{display:block;width:100%;aspect-ratio:16/10;object-fit:cover;border:1px solid #0C0F1E}
+.maturity-row{display:grid;grid-template-columns:26px 80px minmax(220px,.72fr) minmax(0,1.4fr);gap:18px;align-items:start;padding:19px clamp(20px,4vw,56px);border-bottom:1px solid rgba(12,15,30,.2);cursor:pointer;background:#fff;color:#0C0F1E;transition:background .18s ease,color .18s ease}
+.maturity-row:hover,.maturity-row:has(input:checked){background:#1D3DF0;color:#fff}.maturity-row input{position:absolute;opacity:0}.maturity-check{display:grid;place-items:center;width:22px;height:22px;margin-top:1px;border:1.5px solid #1D3DF0;color:transparent;font:700 16px/1 Arial,sans-serif}.maturity-row:has(input:checked) .maturity-check{border-color:#fff;background:#fff;color:#1D3DF0}.maturity-row:has(input:checked) .maturity-check:after{content:'×'}.maturity-row:has(input:checked) .maturity-num,.maturity-row:has(input:checked) .maturity-copy{color:#DDE4FF!important}@media(max-width:760px){header [style*="grid-template-columns:1fr 1fr 1fr"]{grid-template-columns:1fr!important}header [style*="border-right:1px"]{border-right:0!important;border-bottom:1px solid #0C0F1E}[data-screen-label="opening"],[data-screen-label="meta-skill"],[data-screen-label="offer"]{grid-template-columns:1fr!important}[data-screen-label="opening"]>div:first-child,[data-screen-label="meta-skill"]>div:first-child,[data-screen-label="offer"]>div:first-child{border-right:0!important;border-bottom:1px solid #0C0F1E}[data-screen-label="updates"] article{grid-template-columns:72px minmax(0,1fr)!important}[data-screen-label="updates"] article>div:first-child{padding:26px 14px!important;border-right:1px solid #0C0F1E!important}[data-screen-label="updates"] article>div:nth-child(2){padding:28px 18px!important;border-right:0!important}[data-screen-label="updates"] aside{grid-column:2;padding:22px 18px!important}.maturity-row{grid-template-columns:26px 48px 1fr;gap:10px}.maturity-row p{grid-column:3}.maturity-row h3{font-size:17px!important}footer [style*="grid-template-columns:1fr 1fr"]{grid-template-columns:1fr!important}}
+</style></head>
+<body>
+
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <style>/* latin-ext */
+@font-face {
+  font-family: 'DM Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("5867d936-57e3-41a4-b2df-cc5eaab700d8") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'DM Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("73cce2a4-ddd1-4b0a-a2a9-0f024274f1f7") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'DM Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("32161b98-8dd9-4daf-9c77-43aa6176cc30") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'DM Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("290a5351-d35d-4a79-98d2-ec54c889ec9b") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Onest';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("91c9ab41-0838-4f4a-8288-1f05024b4bbe") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Onest';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("6e0361d9-061f-41ca-9a96-890565860045") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Onest';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("98c49555-da74-4afb-868c-44a9c15f4477") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Onest';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("22cfda19-31f6-46a8-abce-5fb40ee1e418") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Onest';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("91c9ab41-0838-4f4a-8288-1f05024b4bbe") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Onest';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("6e0361d9-061f-41ca-9a96-890565860045") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Onest';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("98c49555-da74-4afb-868c-44a9c15f4477") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Onest';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("22cfda19-31f6-46a8-abce-5fb40ee1e418") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Onest';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("91c9ab41-0838-4f4a-8288-1f05024b4bbe") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Onest';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("6e0361d9-061f-41ca-9a96-890565860045") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Onest';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("98c49555-da74-4afb-868c-44a9c15f4477") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Onest';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("22cfda19-31f6-46a8-abce-5fb40ee1e418") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Onest';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("91c9ab41-0838-4f4a-8288-1f05024b4bbe") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Onest';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("6e0361d9-061f-41ca-9a96-890565860045") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Onest';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("98c49555-da74-4afb-868c-44a9c15f4477") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Onest';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("22cfda19-31f6-46a8-abce-5fb40ee1e418") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Onest';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("91c9ab41-0838-4f4a-8288-1f05024b4bbe") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Onest';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("6e0361d9-061f-41ca-9a96-890565860045") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Onest';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("98c49555-da74-4afb-868c-44a9c15f4477") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Onest';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("22cfda19-31f6-46a8-abce-5fb40ee1e418") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Unbounded';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("74a55dbc-ce36-4a2d-8189-b852bc426001") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Unbounded';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("11517540-09c9-449b-a32d-319bde7996e5") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Unbounded';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("e6d2eaf5-6032-403c-bdf9-8ea401853fd3") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Unbounded';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("1bd0064b-7b00-4ceb-89aa-2107cd1661d5") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Unbounded';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("a2981051-a036-4c7f-9e6b-bd18a82384e1") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Unbounded';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("74a55dbc-ce36-4a2d-8189-b852bc426001") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Unbounded';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("11517540-09c9-449b-a32d-319bde7996e5") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Unbounded';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("e6d2eaf5-6032-403c-bdf9-8ea401853fd3") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Unbounded';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("1bd0064b-7b00-4ceb-89aa-2107cd1661d5") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Unbounded';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("a2981051-a036-4c7f-9e6b-bd18a82384e1") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Unbounded';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("74a55dbc-ce36-4a2d-8189-b852bc426001") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Unbounded';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("11517540-09c9-449b-a32d-319bde7996e5") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Unbounded';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("e6d2eaf5-6032-403c-bdf9-8ea401853fd3") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Unbounded';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("1bd0064b-7b00-4ceb-89aa-2107cd1661d5") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Unbounded';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("a2981051-a036-4c7f-9e6b-bd18a82384e1") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Unbounded';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("74a55dbc-ce36-4a2d-8189-b852bc426001") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Unbounded';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("11517540-09c9-449b-a32d-319bde7996e5") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Unbounded';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("e6d2eaf5-6032-403c-bdf9-8ea401853fd3") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Unbounded';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("1bd0064b-7b00-4ceb-89aa-2107cd1661d5") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Unbounded';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("a2981051-a036-4c7f-9e6b-bd18a82384e1") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+</style>
+  <style>
+    html { scroll-behavior:smooth; background:#FFFFFF; }
+    body { margin:0; background:#FFFFFF; color:#0C0F1E; font-family:Onest,Arial,sans-serif; -webkit-font-smoothing:antialiased; }
+    a { color:#1D3DF0; }
+    a:hover { color:#0A24B8; }
+    @keyframes bob { 50% { transform:translateY(5px); } }
+    @keyframes marquee { to { transform:translateX(-50%); } }
+  </style>
+
+
+<header data-screen-label="hero" style="min-height:100svh;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden;border-bottom:3px solid #0C0F1E">
+  <div style="position:absolute;left:33%;top:0;bottom:0;width:1px;background:rgba(29,61,240,.25);pointer-events:none"></div>
+  <div style="position:absolute;left:66%;top:0;bottom:0;width:1px;background:rgba(29,61,240,.25);pointer-events:none"></div>
+  <div style="position:absolute;right:-14vw;top:-16vw;width:34vw;aspect-ratio:1;border-radius:50%;background:#1D3DF0;pointer-events:none"></div>
+  <div style="position:absolute;right:-14vw;top:-16vw;width:44vw;aspect-ratio:1;border-radius:50%;border:1px solid rgba(29,61,240,.4);pointer-events:none"></div>
+  <div style="position:relative;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:22px clamp(20px,4vw,56px);border-bottom:1px solid #0C0F1E;background:#FFFFFF">
+    <span style="color:#1D3DF0;font:700 16px/1 'DM Mono',monospace">gconf</span>
+    <span style="color:#0C0F1E;font:500 11px/1.2 'DM Mono',monospace;letter-spacing:.08em;text-transform:uppercase">signal / 14.07.2026 / long read</span>
+    <span style="color:#1D3DF0;font:500 11px/1.2 'DM Mono',monospace;letter-spacing:.08em;text-transform:uppercase">issue №07</span>
+  </div>
+  <div style="position:relative;padding:8vh clamp(20px,4vw,56px) 6vh">
+    <div style="color:#1D3DF0;font:500 12px/1 'DM Mono',monospace;letter-spacing:.28em;text-transform:uppercase;margin-bottom:30px">agentic / flow / 2026</div>
+    <h1 style="max-width:1150px;margin:0;font:600 clamp(44px,7.6vw,104px)/.94 Unbounded,sans-serif;letter-spacing:-.07em;text-transform:lowercase">за последнюю<br>неделю <span style="color:#1D3DF0">изменилось<br>всё.</span></h1>
+  </div>
+  <div style="position:relative;display:grid;grid-template-columns:1fr 1fr 1fr;border-top:1px solid #0C0F1E;background:#FFFFFF">
+    <p style="margin:0;padding:20px clamp(20px,4vw,56px) 24px 20px;border-right:1px solid #0C0F1E;font-size:15px;line-height:1.4;font-weight:600">chatgpt work, codex, gpt live, fable, gpt-5.6 — что изменилось в мире агентов и что это значит для каждого из нас.</p>
+    <p style="margin:0;padding:20px;border-right:1px solid #0C0F1E;color:#565B73;font-size:13px;line-height:1.4">семь обновлений, которые изменят твоё представление о текущем уровне развития агентов.</p>
+    <a href="#read" style="display:flex;align-items:center;justify-content:center;gap:12px;padding:20px;background:#1D3DF0;color:#fff;text-decoration:none;font:700 13px/1 'DM Mono',monospace;letter-spacing:.07em;text-transform:uppercase;transition:background .18s ease" style-hover="background:#0A24B8">читать <i style="font-style:normal;animation:bob 1.8s ease-in-out infinite">↓</i></a>
+  </div>
+</header>
+
+<main id="read">
+  <section data-screen-label="opening" style="display:grid;grid-template-columns:minmax(240px,.9fr) 1.6fr;border-bottom:1px solid #0C0F1E">
+    <div style="padding:clamp(32px,5vw,70px) clamp(20px,3vw,44px);border-right:1px solid #0C0F1E">
+      <h2 style="margin:0;font:600 clamp(28px,3.6vw,50px)/1 Unbounded,sans-serif;letter-spacing:-.065em">не «ии стал лучше». сменилась <span style="color:#1D3DF0">единица работы.</span></h2>
+    </div>
+    <div style="padding:clamp(32px,5vw,70px) clamp(20px,4vw,56px);font-size:20px;line-height:1.5;color:#2C3049">
+      <p style="max-width:640px;margin:0">ещё весной большинство людей использовали ии как собеседника: придумай, напиши, объясни, переведи.</p>
+      <p style="max-width:640px">за 3,5 года ии прошёл путь от чата к агенту: от инструмента, который отвечает словами, — к тому, что <b style="box-shadow:inset 0 -0.45em #BFF52E;color:#0C0F1E">делает работу за тебя</b>.</p>
+      <p style="max-width:640px;margin-top:34px;border-top:3px solid #1D3DF0;padding-top:14px;font-weight:700;color:#0C0F1E">агент становится автономным сотрудником. ему нужны доступы, среда, правила и контекст.</p>
+    </div>
+  </section>
+
+  <section data-screen-label="updates">
+    <article style="display:grid;grid-template-columns:minmax(150px,.35fr) 1.5fr minmax(230px,.55fr);border-bottom:1px solid #0C0F1E">
+      <div style="padding:34px clamp(20px,3vw,44px);border-right:1px solid #0C0F1E"><div style="color:#1D3DF0;font:600 clamp(34px,4vw,58px)/1 Unbounded,sans-serif;letter-spacing:-.06em">01</div><div style="margin-top:8px;color:#565B73;font:500 11px/1 'DM Mono',monospace;letter-spacing:.08em">/ 07</div></div>
+      <div style="padding:34px clamp(20px,3vw,44px);border-right:1px solid #0C0F1E">
+        <h3 style="margin:0 0 18px;font:600 clamp(23px,2.5vw,36px)/1.05 Unbounded,sans-serif;letter-spacing:-.055em">chatgpt work: не новый чат, а отдельный режим работы</h3>
+        <p style="max-width:640px;margin:0;color:#2C3049;font-size:17px;line-height:1.48">openai фактически собирает в одном интерфейсе три режима:</p>
+        <ul style="max-width:640px;display:grid;gap:7px;margin:16px 0 0;padding:0;list-style:none;color:#2C3049;font-size:16px;line-height:1.42">
+          <li style="padding-left:18px;position:relative"><span style="position:absolute;left:0;color:#1D3DF0;font-weight:800">→</span><b style="color:#0C0F1E">обычный чат</b> — думать, формулировать, разбирать задачи;</li>
+          <li style="padding-left:18px;position:relative"><span style="position:absolute;left:0;color:#1D3DF0;font-weight:800">→</span><b style="color:#0C0F1E">codex</b> — вайбкодинг и агентский loop;</li>
+          <li style="padding-left:18px;position:relative"><span style="position:absolute;left:0;color:#1D3DF0;font-weight:800">→</span><b style="color:#0C0F1E">chatgpt work</b> — рабочая операционка: файлы, документы, деки, таблицы, сайты и браузер.</li>
+        </ul>
+        <p style="max-width:640px;margin:14px 0 0;color:#2C3049;font-size:17px;line-height:1.48">это было очень ожидаемо. сейчас меняется сам подход к работе, к управлению задачами, контекстом и делами.</p>
+        <figure style="max-width:640px;margin:24px 0 0">
+          <div style="width:100%;aspect-ratio:16/10;border:1px solid #0C0F1E">
+            <img class="gconf-shot" src="assets/chatgpt_work_2026-07-14.jpg" alt="интерфейс chatgpt work">
+          </div>
+          <figcaption style="margin-top:8px;color:#565B73;font:500 11px/1.35 'DM Mono',monospace;letter-spacing:.035em;text-transform:uppercase">chatgpt work: codex, работа с проектами, задачами, скиллами и сайтами в одном интерфейсе</figcaption>
+        </figure>
+      </div>
+      <aside style="padding:34px clamp(18px,2vw,30px);background:#F2F4FB;color:#2C3049;font-size:13px;line-height:1.45"><b style="display:block;margin-bottom:8px;color:#1D3DF0;font:500 11px/1 'DM Mono',monospace;letter-spacing:.1em;text-transform:uppercase">важное изменение</b>отдельный codex app больше не нужен: он интегрирован в новый chatgpt desktop вместе с привычным chat и новым work. codex остаётся отдельным режимом для вайбкодинга.<br><a href="https://openai.com/index/chatgpt-for-your-most-ambitious-work/" target="_blank" rel="noreferrer" style="color:#1D3DF0;font-weight:800;text-decoration-thickness:1px;text-underline-offset:3px">источник ↗</a></aside>
+    </article>
+
+    <article style="display:grid;grid-template-columns:minmax(150px,.35fr) 1.5fr minmax(230px,.55fr);border-bottom:1px solid #0C0F1E">
+      <div style="padding:34px clamp(20px,3vw,44px);border-right:1px solid #0C0F1E"><div style="color:#1D3DF0;font:600 clamp(34px,4vw,58px)/1 Unbounded,sans-serif;letter-spacing:-.06em">02</div><div style="margin-top:8px;color:#565B73;font:500 11px/1 'DM Mono',monospace;letter-spacing:.08em">/ 07</div></div>
+      <div style="padding:34px clamp(20px,3vw,44px);border-right:1px solid #0C0F1E">
+        <h3 style="margin:0 0 18px;font:600 clamp(23px,2.5vw,36px)/1.05 Unbounded,sans-serif;letter-spacing:-.055em">swarm агенты</h3>
+        <p style="max-width:640px;margin:0;color:#2C3049;font-size:17px;line-height:1.48">swarm-агенты — история не новая, но сейчас она всё больше выходит на передний план: тренд смещается к тому, чтобы агенты работали в постоянном цикле улучшения, а не выдавали один ответ.</p>
+        <p style="max-width:640px;margin:14px 0 0;color:#2C3049;font-size:17px;line-height:1.48">например, вы запускаете глубокое исследование по теме здоровья:</p>
+        <ol style="max-width:640px;display:grid;margin:20px 0 0;padding:0;list-style:none;border-top:1px solid #0C0F1E">
+          <li style="display:grid;grid-template-columns:42px 1fr;gap:12px;padding:13px 0;border-bottom:1px solid rgba(12,15,30,.2);color:#2C3049;font-size:16px;line-height:1.42"><span style="color:#1D3DF0;font:500 12px/1.55 'DM Mono',monospace">01</span><div><b style="font-weight:800;color:#0C0F1E">ресерчер</b> — собирает исследования по заданным признакам.</div></li>
+          <li style="display:grid;grid-template-columns:42px 1fr;gap:12px;padding:13px 0;border-bottom:1px solid rgba(12,15,30,.2);color:#2C3049;font-size:16px;line-height:1.42"><span style="color:#1D3DF0;font:500 12px/1.55 'DM Mono',monospace">02</span><div><b style="font-weight:800;color:#0C0F1E">верификатор</b> — забирает результаты первого агента и проверяет корректность исследований.</div></li>
+          <li style="display:grid;grid-template-columns:42px 1fr;gap:12px;padding:13px 0;border-bottom:1px solid rgba(12,15,30,.2);color:#2C3049;font-size:16px;line-height:1.42"><span style="color:#1D3DF0;font:500 12px/1.55 'DM Mono',monospace">03</span><div><b style="font-weight:800;color:#0C0F1E">статистик</b> — смотрит на статистическую значимость.</div></li>
+          <li style="display:grid;grid-template-columns:42px 1fr;gap:12px;padding:13px 0;border-bottom:1px solid rgba(12,15,30,.2);color:#2C3049;font-size:16px;line-height:1.42"><span style="color:#1D3DF0;font:500 12px/1.55 'DM Mono',monospace">04</span><div><b style="font-weight:800;color:#0C0F1E">критик</b> — ищет слабые места, ограничения и дыры в выводах.</div></li>
+        </ol>
+        <figure style="max-width:640px;margin:24px 0 0">
+          <div style="width:100%;aspect-ratio:16/10;border:1px solid #0C0F1E">
+            <img class="gconf-shot" src="assets/swarm_agents_2026-07-14.png" alt="пример работы swarm-агентов">
+          </div>
+          <figcaption style="margin-top:8px;color:#565B73;font:500 11px/1.35 'DM Mono',monospace;letter-spacing:.035em;text-transform:uppercase">пример работы swarm-агентов</figcaption>
+        </figure>
+      </div>
+      <aside style="padding:34px clamp(18px,2vw,30px);background:#F2F4FB;color:#2C3049;font-size:13px;line-height:1.45"><b style="display:block;margin-bottom:8px;color:#1D3DF0;font:500 11px/1 'DM Mono',monospace;letter-spacing:.1em;text-transform:uppercase">принцип</b>не один агент «знает всё», а несколько ролей собирают, проверяют и атакуют результат друг друга.</aside>
+    </article>
+
+    <article style="display:grid;grid-template-columns:minmax(150px,.35fr) 1.5fr minmax(230px,.55fr);border-bottom:1px solid #0C0F1E">
+      <div style="padding:34px clamp(20px,3vw,44px);border-right:1px solid #0C0F1E"><div style="color:#1D3DF0;font:600 clamp(34px,4vw,58px)/1 Unbounded,sans-serif;letter-spacing:-.06em">03</div><div style="margin-top:8px;color:#565B73;font:500 11px/1 'DM Mono',monospace;letter-spacing:.08em">/ 07</div></div>
+      <div style="padding:34px clamp(20px,3vw,44px);border-right:1px solid #0C0F1E">
+        <h3 style="margin:0 0 18px;font:600 clamp(23px,2.5vw,36px)/1.05 Unbounded,sans-serif;letter-spacing:-.055em">gpt‑5.6: мозг, рабочая лошадь, конвейер</h3>
+        <p style="max-width:640px;margin:0;color:#2C3049;font-size:17px;line-height:1.48">openai выпустила не одну «следующую модель», а одну семью под три разных типа работы:</p>
+        <ul style="max-width:640px;display:grid;gap:7px;margin:16px 0 0;padding:0;list-style:none;color:#2C3049;font-size:16px;line-height:1.42">
+          <li style="padding-left:18px;position:relative"><span style="position:absolute;left:0;color:#1D3DF0;font-weight:800">→</span><b style="color:#0C0F1E">sol</b> — максимум качества и reasoning для сложных исследований и тяжёлых агентных задач;</li>
+          <li style="padding-left:18px;position:relative"><span style="position:absolute;left:0;color:#1D3DF0;font-weight:800">→</span><b style="color:#0C0F1E">terra</b> — баланс интеллекта, скорости и цены для большинства рабочих процессов;</li>
+          <li style="padding-left:18px;position:relative"><span style="position:absolute;left:0;color:#1D3DF0;font-weight:800">→</span><b style="color:#0C0F1E">luna</b> — быстрый режим для массовых повторяемых действий: классификации, разметки и первичных сводок.</li>
+        </ul>
+        <figure style="max-width:640px;margin:24px 0 0">
+          <div style="width:100%;aspect-ratio:16/10;border:1px solid #0C0F1E">
+            <img class="gconf-shot" src="assets/gpt_5_6_models_2026-07-14.png" alt="выбор модели gpt-5.6">
+          </div>
+          <figcaption style="margin-top:8px;color:#565B73;font:500 11px/1.35 'DM Mono',monospace;letter-spacing:.035em;text-transform:uppercase">выбор модели gpt‑5.6: sol, terra или luna</figcaption>
+        </figure>
+      </div>
+      <aside style="padding:34px clamp(18px,2vw,30px);background:#F2F4FB;color:#2C3049;font-size:13px;line-height:1.45"><b style="display:block;margin-bottom:8px;color:#1D3DF0;font:500 11px/1 'DM Mono',monospace;letter-spacing:.1em;text-transform:uppercase">главное</b>gpt‑5.6 добавляет сохранённое reasoning, программную работу с инструментами и multi-agent orchestration в beta.<br><a href="https://openai.com/products/release-notes/" target="_blank" rel="noreferrer" style="color:#1D3DF0;font-weight:800;text-decoration-thickness:1px;text-underline-offset:3px">источник ↗</a></aside>
+    </article>
+
+    <article style="display:grid;grid-template-columns:minmax(150px,.35fr) 1.5fr minmax(230px,.55fr);border-bottom:1px solid #0C0F1E">
+      <div style="padding:34px clamp(20px,3vw,44px);border-right:1px solid #0C0F1E"><div style="color:#1D3DF0;font:600 clamp(34px,4vw,58px)/1 Unbounded,sans-serif;letter-spacing:-.06em">04</div><div style="margin-top:8px;color:#565B73;font:500 11px/1 'DM Mono',monospace;letter-spacing:.08em">/ 07</div></div>
+      <div style="padding:34px clamp(20px,3vw,44px);border-right:1px solid #0C0F1E">
+        <h3 style="margin:0 0 18px;font:600 clamp(23px,2.5vw,36px)/1.05 Unbounded,sans-serif;letter-spacing:-.055em">проблема теперь не в людях, а в дизайне работы</h3>
+        <p style="max-width:640px;margin:0;color:#2C3049;font-size:17px;line-height:1.48">microsoft work trend index 2026 фиксирует организационный сдвиг: ограничение больше не в том, что люди способны делать, а в том, как вокруг них устроена работа.</p>
+        <ul style="max-width:640px;display:grid;gap:7px;margin:16px 0 0;padding:0;list-style:none;color:#2C3049;font-size:16px;line-height:1.42">
+          <li style="padding-left:18px;position:relative"><span style="position:absolute;left:0;color:#1D3DF0;font-weight:800">→</span>20 000 сотрудников, использующих ии, в 10 странах + триллионы анонимизированных сигналов продуктивности microsoft 365;</li>
+          <li style="padding-left:18px;position:relative"><span style="position:absolute;left:0;color:#1D3DF0;font-weight:800">→</span><b style="color:#0C0F1E">58%</b> пользователей ии говорят, что делают работу, которую не могли делать год назад; среди frontier professionals — <b style="color:#0C0F1E">80%</b>;</li>
+          <li style="padding-left:18px;position:relative"><span style="position:absolute;left:0;color:#1D3DF0;font-weight:800">→</span>две главные человеческие компетенции: <b style="color:#0C0F1E">контроль качества вывода ии</b> и <b style="color:#0C0F1E">критическое мышление</b>.</li>
+        </ul>
+        <p style="max-width:640px;margin:14px 0 0;color:#2C3049;font-size:17px;line-height:1.48">человек не исчезает. его роль смещается в постановку цели, контроль качества, критическое мышление и проектирование workflow.</p>
+      </div>
+      <aside style="padding:34px clamp(18px,2vw,30px);background:#F2F4FB;color:#2C3049;font-size:13px;line-height:1.45"><b style="display:block;margin-bottom:8px;color:#1D3DF0;font:500 11px/1 'DM Mono',monospace;letter-spacing:.1em;text-transform:uppercase">вывод</b>главный сдвиг сейчас — не в том, насколько модель умная и способная, а в том, как специалист и компания выстраивают свои процессы и насколько они ai-first.<br><a href="https://blogs.microsoft.com/blog/2026/05/05/how-frontier-firms-are-rebuilding-the-operating-model-for-the-age-of-ai/" target="_blank" rel="noreferrer" style="color:#1D3DF0;font-weight:800;text-decoration-thickness:1px;text-underline-offset:3px">источник ↗</a></aside>
+    </article>
+
+    <article style="display:grid;grid-template-columns:minmax(150px,.35fr) 1.5fr minmax(230px,.55fr);border-bottom:1px solid #0C0F1E">
+      <div style="padding:34px clamp(20px,3vw,44px);border-right:1px solid #0C0F1E"><div style="color:#1D3DF0;font:600 clamp(34px,4vw,58px)/1 Unbounded,sans-serif;letter-spacing:-.06em">05</div><div style="margin-top:8px;color:#565B73;font:500 11px/1 'DM Mono',monospace;letter-spacing:.08em">/ 07</div></div>
+      <div style="padding:34px clamp(20px,3vw,44px);border-right:1px solid #0C0F1E">
+        <h3 style="margin:0 0 18px;font:600 clamp(23px,2.5vw,36px)/1.05 Unbounded,sans-serif;letter-spacing:-.055em">агентам нужна инфраструктура, не ещё один промпт</h3>
+        <p style="max-width:640px;margin:0;color:#2C3049;font-size:17px;line-height:1.48">модель — только ядро. чтобы агент действительно работал, ему нужен полноценный контур:</p>
+        <ul style="max-width:640px;display:grid;gap:7px;margin:16px 0 0;padding:0;list-style:none;color:#2C3049;font-size:16px;line-height:1.42">
+          <li style="padding-left:18px;position:relative"><span style="position:absolute;left:0;color:#1D3DF0;font-weight:800">→</span><b style="color:#0C0F1E">контекст и память</b> — что агент знает о компании, задаче и прошлых решениях;</li>
+          <li style="padding-left:18px;position:relative"><span style="position:absolute;left:0;color:#1D3DF0;font-weight:800">→</span><b style="color:#0C0F1E">коннекторы и инструменты</b> — где он читает данные и что может делать в crm, документах, почте или браузере;</li>
+          <li style="padding-left:18px;position:relative"><span style="position:absolute;left:0;color:#1D3DF0;font-weight:800">→</span><b style="color:#0C0F1E">доступы и правила</b> — к чему он допущен, где обязан спросить разрешение, что ему запрещено;</li>
+          <li style="padding-left:18px;position:relative"><span style="position:absolute;left:0;color:#1D3DF0;font-weight:800">→</span><b style="color:#0C0F1E">среда и наблюдаемость</b> — где он исполняет работу, как мы видим его действия, ошибки и качество результата.</li>
+        </ul>
+        <p style="max-width:640px;margin:14px 0 0;color:#2C3049;font-size:17px;line-height:1.48">мы в gconf практически полностью отказались от внешних сервисов, кроме платёжек, и переехали на свою инфраструктуру — сами завайбкодили её под процессы команды.</p>
+      </div>
+      <aside style="padding:34px clamp(18px,2vw,30px);background:#F2F4FB;color:#2C3049;font-size:13px;line-height:1.45"><b style="display:block;margin-bottom:8px;color:#1D3DF0;font:500 11px/1 'DM Mono',monospace;letter-spacing:.1em;text-transform:uppercase">сдвиг</b>конкурировать будут не модели. конкурировать будут инфраструктуры, в которых модели могут безопасно и повторяемо действовать.<br><a href="https://openai.com/index/running-codex-safely/" target="_blank" rel="noreferrer" style="color:#1D3DF0;font-weight:800;text-decoration-thickness:1px;text-underline-offset:3px">источник ↗</a></aside>
+    </article>
+
+    <article style="display:grid;grid-template-columns:minmax(150px,.35fr) 1.5fr minmax(230px,.55fr);border-bottom:1px solid #0C0F1E">
+      <div style="padding:34px clamp(20px,3vw,44px);border-right:1px solid #0C0F1E"><div style="color:#1D3DF0;font:600 clamp(34px,4vw,58px)/1 Unbounded,sans-serif;letter-spacing:-.06em">06</div><div style="margin-top:8px;color:#565B73;font:500 11px/1 'DM Mono',monospace;letter-spacing:.08em">/ 07</div></div>
+      <div style="padding:34px clamp(20px,3vw,44px);border-right:1px solid #0C0F1E">
+        <h3 style="margin:0 0 18px;font:600 clamp(23px,2.5vw,36px)/1.05 Unbounded,sans-serif;letter-spacing:-.055em">scheduled tasks: ии держит время</h3>
+        <p style="max-width:640px;margin:0;color:#2C3049;font-size:17px;line-height:1.48">агенту больше не нужно ждать, пока вы вспомните о задаче. scheduled tasks позволяют ему запуститься один раз, повторяться по расписанию, реагировать на событие или мониторить изменения.</p>
+        <ul style="max-width:640px;display:grid;gap:7px;margin:16px 0 0;padding:0;list-style:none;color:#2C3049;font-size:16px;line-height:1.42">
+          <li style="padding-left:18px;position:relative"><span style="position:absolute;left:0;color:#1D3DF0;font-weight:800">→</span><b style="color:#0C0F1E">по времени</b> — каждое утро проверить сайт и дашборд, собрать изменения и обновить отчёт;</li>
+          <li style="padding-left:18px;position:relative"><span style="position:absolute;left:0;color:#1D3DF0;font-weight:800">→</span><b style="color:#0C0F1E">по триггеру</b> — пришла новая заявка, письмо или сообщение: агент собирает контекст, обновляет трекер и готовит следующий шаг;</li>
+          <li style="padding-left:18px;position:relative"><span style="position:absolute;left:0;color:#1D3DF0;font-weight:800">→</span><b style="color:#0C0F1E">по изменению</b> — появился новый отзыв, конкурент обновил цену или в проекте возник блокер: агент замечает сигнал и приносит не шум, а вывод.</li>
+        </ul>
+        <p style="max-width:640px;margin:14px 0 0;color:#2C3049;font-size:17px;line-height:1.48">это не напоминалка. это перенос повторяющегося внимания из головы в рабочий контур.</p>
+      </div>
+      <aside style="padding:34px clamp(18px,2vw,30px);background:#F2F4FB;color:#2C3049;font-size:13px;line-height:1.45"><b style="display:block;margin-bottom:8px;color:#1D3DF0;font:500 11px/1 'DM Mono',monospace;letter-spacing:.1em;text-transform:uppercase">сдвиг</b>агент начинает держать не только задачу, но и время: что проверить, когда вернуться и какой сигнал не пропустить.<br><a href="https://openai.com/index/chatgpt-for-your-most-ambitious-work/" target="_blank" rel="noreferrer" style="color:#1D3DF0;font-weight:800;text-decoration-thickness:1px;text-underline-offset:3px">источник ↗</a></aside>
+    </article>
+
+    <article style="display:grid;grid-template-columns:minmax(150px,.35fr) 1.5fr minmax(230px,.55fr);border-bottom:3px solid #0C0F1E">
+      <div style="padding:34px clamp(20px,3vw,44px);border-right:1px solid #0C0F1E"><div style="color:#1D3DF0;font:600 clamp(34px,4vw,58px)/1 Unbounded,sans-serif;letter-spacing:-.06em">07</div><div style="margin-top:8px;color:#565B73;font:500 11px/1 'DM Mono',monospace;letter-spacing:.08em">/ 07</div></div>
+      <div style="padding:34px clamp(20px,3vw,44px);border-right:1px solid #0C0F1E">
+        <h3 style="margin:0 0 18px;font:600 clamp(23px,2.5vw,36px)/1.05 Unbounded,sans-serif;letter-spacing:-.055em">fable 5: frontier-модель с предохранителем</h3>
+        <p style="max-width:640px;margin:0;color:#2C3049;font-size:17px;line-height:1.48">anthropic выпустила fable 5 как модель пятого поколения для самых сложных задач в коде и knowledge work: длинных, асинхронных, с большим числом шагов.</p>
+        <p style="max-width:640px;margin:14px 0 0;color:#2C3049;font-size:17px;line-height:1.48">но важнее не только мощность. fable и mythos 5 построены на одной базе, но fable получила усиленные safeguards для общего доступа. после временной остановки anthropic обновила защитные классификаторы и вернула fable в глобальный доступ.</p>
+        <p style="max-width:640px;margin:14px 0 0;color:#2C3049;font-size:17px;line-height:1.48">это новый сигнал рынка: frontier-модель теперь — не просто интеллект. это интеллект плюс слой правил, который решает, где и как его можно безопасно применять.</p>
+      </div>
+      <aside style="padding:34px clamp(18px,2vw,30px);background:#F2F4FB;color:#2C3049;font-size:13px;line-height:1.45"><b style="display:block;margin-bottom:8px;color:#1D3DF0;font:500 11px/1 'DM Mono',monospace;letter-spacing:.1em;text-transform:uppercase">почему это важно</b><b style="color:#0C0F1E">09 июня</b> — запуск. <b style="color:#0C0F1E">12 июня</b> — директива сша закрывает доступ иностранцам, включая сотрудников anthropic без гражданства сша; компания временно отключает модель для всех, потому что не может надёжно проверять паспорта в реальном времени. <b style="color:#0C0F1E">01 июля</b> — доступ возвращают глобально. промо-доступ для платных планов продлён до <b style="color:#0C0F1E">19 июля</b>.<br><br>это явный прецедент: доступ к frontier-модели может внезапно стать вопросом паспорта, а не только тарифа или страны аккаунта.<br><a href="https://www.anthropic.com/news/fable-mythos-access" target="_blank" rel="noreferrer" style="color:#1D3DF0;font-weight:800;text-decoration-thickness:1px;text-underline-offset:3px">12 июня ↗</a> · <a href="https://www.anthropic.com/news/redeploying-fable-5" target="_blank" rel="noreferrer" style="color:#1D3DF0;font-weight:800;text-decoration-thickness:1px;text-underline-offset:3px">01 июля ↗</a></aside>
+    </article>
+  </section>
+</main>
+
+<section data-screen-label="cut" style="padding:100px clamp(20px,4vw,56px);background:#1D3DF0;border-bottom:3px solid #0C0F1E">
+  <p style="max-width:960px;margin:0;font:600 clamp(29px,4.8vw,64px)/1.02 Unbounded,sans-serif;letter-spacing:-.065em;color:#fff">проверьте, <em style="box-shadow:inset 0 -0.4em rgba(191,245,46,.9);color:#fff;font-style:normal">где сейчас ваш потолок</em> использования ии и агентов в жизни и работе.</p>
+  <a href="#test" style="display:inline-flex;gap:16px;align-items:center;margin-top:36px;padding:15px 20px;background:#fff;color:#1D3DF0;font:700 12px/1 'DM Mono',monospace;letter-spacing:.07em;text-decoration:none;text-transform:uppercase;transition:background .18s ease,color .18s ease" style-hover="background:#0C0F1E;color:#fff">пройти карту зрелости ↓</a>
+</section>
+
+<section id="test" data-screen-label="maturity" style="border-bottom:3px solid #0C0F1E"><div style="display:grid;grid-template-columns:minmax(240px,.9fr) 1.6fr;border-bottom:1px solid #0C0F1E"><div style="padding:clamp(36px,5vw,80px) clamp(20px,3vw,44px);border-right:1px solid #0C0F1E"><div style="color:#1D3DF0;font:500 12px/1.2 'DM Mono',monospace;letter-spacing:.06em;text-transform:uppercase">карта зрелости</div><h2 style="margin:16px 0 0;font:600 clamp(32px,4.4vw,60px)/1 Unbounded,sans-serif;letter-spacing:-.065em">как понять, на каком слое вы находитесь</h2></div><div style="padding:clamp(36px,5vw,80px) clamp(20px,4vw,56px);align-self:end"><p style="max-width:620px;margin:0;color:#2C3049;font-size:17px;line-height:1.46;font-weight:600">отметьте каждый слой, который уже работает у вас. не теория — реальный контур жизни или работы.</p></div></div><div style="display:grid;grid-template-columns:100px minmax(220px,.72fr) minmax(0,1.4fr);gap:18px;padding:22px clamp(20px,4vw,56px);border-bottom:1px solid rgba(12,15,30,.2);background:#F2F4FB;color:#565B73"><span style="font:500 12px/1.4 'DM Mono',monospace;letter-spacing:.05em">00 / 09</span><h3 style="margin:0;font:600 clamp(17px,1.9vw,23px)/1.1 Unbounded,sans-serif;letter-spacing:-.05em">умный бадди</h3><p style="margin:0;font-size:15px;line-height:1.45">вы с ним думаете над задачами, спрашиваете, просите объяснить и помочь найти.</p></div><label class="maturity-row"><input type="checkbox" class="maturity-toggle"><span class="maturity-check"></span><span class="maturity-num" style="font:500 12px/1.4 'DM Mono',monospace;letter-spacing:.05em;color:#1D3DF0">01 / 09</span><h3 style="margin:0;font:600 clamp(17px,1.9vw,23px)/1.1 Unbounded,sans-serif;letter-spacing:-.05em">производитель артефактов</h3><p style="max-width:590px;margin:0;font-size:15px;line-height:1.45"><b style="display:block;margin-bottom:4px;font-size:11px;letter-spacing:.09em;text-transform:uppercase">этап закрыт, если</b><span class="maturity-copy" style="color:#565B73">ии создаёт используемые документы, таблицы, отчёты, письма, лендинги или брифы — не черновик под полную перепись, а рабочий результат.</span></p></label><label class="maturity-row"><input type="checkbox" class="maturity-toggle"><span class="maturity-check"></span><span class="maturity-num" style="font:500 12px/1.4 'DM Mono',monospace;letter-spacing:.05em;color:#1D3DF0">02 / 09</span><h3 style="margin:0;font:600 clamp(17px,1.9vw,23px)/1.1 Unbounded,sans-serif;letter-spacing:-.05em">исполнитель процессов</h3><p style="max-width:590px;margin:0;font-size:15px;line-height:1.45"><b style="display:block;margin-bottom:4px;font-size:11px;letter-spacing:.09em;text-transform:uppercase">этап закрыт, если</b><span class="maturity-copy" style="color:#565B73">у вас настроены процессы, которые ии запускает по расписанию, событию или триггеру: собирает контекст, делает цепочку шагов и снимает с вас часть рутины.</span></p></label><label class="maturity-row"><input type="checkbox" class="maturity-toggle"><span class="maturity-check"></span><span class="maturity-num" style="font:500 12px/1.4 'DM Mono',monospace;letter-spacing:.05em;color:#1D3DF0">03 / 09</span><h3 style="margin:0;font:600 clamp(17px,1.9vw,23px)/1.1 Unbounded,sans-serif;letter-spacing:-.05em">агент с инструментами</h3><p style="max-width:590px;margin:0;font-size:15px;line-height:1.45"><b style="display:block;margin-bottom:4px;font-size:11px;letter-spacing:.09em;text-transform:uppercase">этап закрыт, если</b><span class="maturity-copy" style="color:#565B73">у вас настроены связки между агентами и рабочими приложениями: google drive, telegram, notion, crm, zoom, granola — любым сервисом, которым вы пользуетесь и куда агенту дан доступ.</span></p></label><label class="maturity-row"><input type="checkbox" class="maturity-toggle"><span class="maturity-check"></span><span class="maturity-num" style="font:500 12px/1.4 'DM Mono',monospace;letter-spacing:.05em;color:#1D3DF0">04 / 09</span><h3 style="margin:0;font:600 clamp(17px,1.9vw,23px)/1.1 Unbounded,sans-serif;letter-spacing:-.05em">слой действий</h3><p style="max-width:590px;margin:0;font-size:15px;line-height:1.45"><b style="display:block;margin-bottom:4px;font-size:11px;letter-spacing:.09em;text-transform:uppercase">этап закрыт, если</b><span class="maturity-copy" style="color:#565B73">вы видите в агенте продолжение своего действия: он работает с вашим компьютером и приложениями, создаёт сайты, ботов, приложения, дизайн и контент — не только отвечает в чате.</span></p></label><label class="maturity-row"><input type="checkbox" class="maturity-toggle"><span class="maturity-check"></span><span class="maturity-num" style="font:500 12px/1.4 'DM Mono',monospace;letter-spacing:.05em;color:#1D3DF0">05 / 09</span><h3 style="margin:0;font:600 clamp(17px,1.9vw,23px)/1.1 Unbounded,sans-serif;letter-spacing:-.05em">слой решений</h3><p style="max-width:590px;margin:0;font-size:15px;line-height:1.45"><b style="display:block;margin-bottom:4px;font-size:11px;letter-spacing:.09em;text-transform:uppercase">этап закрыт, если</b><span class="maturity-copy" style="color:#565B73">ии на основе постоянного потока данных ранжирует варианты, видит риски и аномалии, предлагает следующий ход и объясняет основания. он участвует в принятии решений, но не забирает ответственность.</span></p></label><label class="maturity-row"><input type="checkbox" class="maturity-toggle"><span class="maturity-check"></span><span class="maturity-num" style="font:500 12px/1.4 'DM Mono',monospace;letter-spacing:.05em;color:#1D3DF0">06 / 09</span><h3 style="margin:0;font:600 clamp(17px,1.9vw,23px)/1.1 Unbounded,sans-serif;letter-spacing:-.05em">операционный контур</h3><p style="max-width:590px;margin:0;font-size:15px;line-height:1.45"><b style="display:block;margin-bottom:4px;font-size:11px;letter-spacing:.09em;text-transform:uppercase">этап закрыт, если</b><span class="maturity-copy" style="color:#565B73">у вас настроены рабочие и личные процессы, где агент хорошо понимает контекст и задачи, помнит данные и усиливает вас без нового промпта каждый раз.</span></p></label><label class="maturity-row"><input type="checkbox" class="maturity-toggle"><span class="maturity-check"></span><span class="maturity-num" style="font:500 12px/1.4 'DM Mono',monospace;letter-spacing:.05em;color:#1D3DF0">07 / 09</span><h3 style="margin:0;font:600 clamp(17px,1.9vw,23px)/1.1 Unbounded,sans-serif;letter-spacing:-.05em">навыки и сценарии</h3><p style="max-width:590px;margin:0;font-size:15px;line-height:1.45"><b style="display:block;margin-bottom:4px;font-size:11px;letter-spacing:.09em;text-transform:uppercase">этап закрыт, если</b><span class="maturity-copy" style="color:#565B73">у вас уже есть описанные и готовые навыки под повторяемые задачи: контент, аналитика, маркетинг, продуктовые ретро, финансы.</span></p></label><label class="maturity-row"><input type="checkbox" class="maturity-toggle"><span class="maturity-check"></span><span class="maturity-num" style="font:500 12px/1.4 'DM Mono',monospace;letter-spacing:.05em;color:#1D3DF0">08 / 09</span><h3 style="margin:0;font:600 clamp(17px,1.9vw,23px)/1.1 Unbounded,sans-serif;letter-spacing:-.05em">командная память</h3><p style="max-width:590px;margin:0;font-size:15px;line-height:1.45"><b style="display:block;margin-bottom:4px;font-size:11px;letter-spacing:.09em;text-transform:uppercase">этап закрыт, если</b><span class="maturity-copy" style="color:#565B73">агенты и ии-подход встроены в культуру команды: есть общий контекст, уровни доступов и процессы с ии, которые работают на всю команду.</span></p></label><label class="maturity-row"><input type="checkbox" class="maturity-toggle"><span class="maturity-check"></span><span class="maturity-num" style="font:500 12px/1.4 'DM Mono',monospace;letter-spacing:.05em;color:#1D3DF0">09 / 09</span><h3 style="margin:0;font:600 clamp(17px,1.9vw,23px)/1.1 Unbounded,sans-serif;letter-spacing:-.05em">управление процессом</h3><p style="max-width:590px;margin:0;font-size:15px;line-height:1.45"><b style="display:block;margin-bottom:4px;font-size:11px;letter-spacing:.09em;text-transform:uppercase">этап закрыт, если</b><span class="maturity-copy" style="color:#565B73">агент сам принимает решения в определённых местах и управляет процессом внутри заданных правил, а человек подключается там, где действительно нужен.</span></p></label><div style="display:grid;grid-template-columns:100px 1fr;gap:25px;padding:26px clamp(20px,4vw,56px);background:#0C0F1E;color:#fff"><strong id="score" style="color:#BFF52E;font:500 12px/1.35 'DM Mono',monospace;letter-spacing:.06em;text-transform:uppercase">0 / 9</strong><p id="score-copy" style="max-width:700px;margin:0;font-size:19px;line-height:1.42;font-weight:700">вы ускоряете мышление. первый сдвиг — перестать оставлять результат в чате и собрать один используемый артефакт.</p></div></section>
+
+<section data-screen-label="meta-skill" style="display:grid;grid-template-columns:1.3fr .7fr;border-bottom:1px solid #0C0F1E;background:#F2F4FB">
+  <div style="padding:clamp(36px,5vw,80px) clamp(20px,4vw,56px);border-right:1px solid #0C0F1E">
+    <div style="color:#1D3DF0;font:500 12px/1.2 'DM Mono',monospace;letter-spacing:.06em;text-transform:uppercase">gconf / среда обучения</div>
+    <h2 style="max-width:760px;margin:18px 0 0;font:600 clamp(30px,4.2vw,56px)/1 Unbounded,sans-serif;letter-spacing:-.065em">мета-навык сейчас — <span style="color:#1D3DF0">уметь выстраивать ии-нейтив процесс</span> из разных агентов и создавать под них среду: память, контексты, процессы.</h2>
+  </div>
+  <div style="display:flex;flex-direction:column;justify-content:end;padding:clamp(36px,5vw,80px) clamp(20px,4vw,56px);color:#2C3049">
+    <p style="margin:0;font-size:17px;line-height:1.48">мета-навыки и паттерны помогают взять максимум от агентов и эффективно сделать их частью жизни и работы.</p>
+    <p style="margin:16px 0 0;font-size:17px;line-height:1.48">в gconf мы создаём среду, в которой проводим через серию экспериментов и практик: замечаем паттерны, собираем мета-навыки и интегрируем агентов в свою жизнь и работу.</p>
+  </div>
+  <div style="grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;border-top:1px solid #0C0F1E">
+    <article style="padding:28px clamp(20px,4vw,56px);border-right:1px solid #0C0F1E">
+      <span style="color:#1D3DF0;font:500 12px/1 'DM Mono',monospace">01 / ежедневные квесты</span>
+      <h3 style="margin:34px 0 0;font:600 21px/1.1 Unbounded,sans-serif;letter-spacing:-.05em">маленькие шаги вместо кучи теории</h3>
+      <p style="margin:12px 0 0;color:#565B73;font-size:14px;line-height:1.42">каждый день вы делаете один маленький шаг. квесты построены так, чтобы за 10–15 минут продвигаться — не выпадать в бесконечное «потом разберусь».</p>
+    </article>
+    <article style="padding:28px clamp(20px,4vw,56px)">
+      <span style="color:#1D3DF0;font:500 12px/1 'DM Mono',monospace">02 / не про кнопочки</span>
+      <h3 style="margin:34px 0 0;font:600 21px/1.1 Unbounded,sans-serif;letter-spacing:-.05em">инструменты меняются, навык остаётся</h3>
+      <p style="margin:12px 0 0;color:#565B73;font-size:14px;line-height:1.42">фокус — на мета-навыках и паттернах, которые помогают понять, как сейчас думать обо всём, что случается с агентами, и как они влияют на нас. это продолжает работать, когда инструменты меняются.</p>
+    </article>
+  </div>
+</section>
+
+<section data-screen-label="stories" style="border-bottom:1px solid #0C0F1E">
+  <div style="overflow:hidden;border-bottom:1px solid #0C0F1E;padding:26px 0">
+    <div style="display:flex;gap:0;width:max-content;animation:marquee 90s linear infinite">
+      <div style="display:flex;align-items:center">
+        <span style="padding:0 22px;font-size:18px;line-height:1.3;font-weight:600;white-space:nowrap">«с нулевым опытом программирования сделала удобный html-файл. месяцы не могла допроситься айтишников»</span><span style="color:#1D3DF0;font:500 12px/1 'DM Mono',monospace">01</span>
+        <span style="padding:0 22px;color:#1D3DF0;font-size:18px;line-height:1.3;font-weight:600;white-space:nowrap">«это мой первый в жизни сайт, и я чувствую себя капец взрослой»</span><span style="color:#1D3DF0;font:500 12px/1 'DM Mono',monospace">02</span>
+        <span style="padding:0 22px;font-size:18px;line-height:1.3;font-weight:600;white-space:nowrap">«за пару часов на выходных сделал коллектор вакансий со смарт-фильтром, работает вполне годно»</span><span style="color:#1D3DF0;font:500 12px/1 'DM Mono',monospace">03</span>
+        <span style="padding:0 22px;color:#1D3DF0;font-size:18px;line-height:1.3;font-weight:600;white-space:nowrap">«моё первое приложение, я в восторге. потратила час»</span><span style="color:#1D3DF0;font:500 12px/1 'DM Mono',monospace">04</span>
+        <span style="padding:0 22px;font-size:18px;line-height:1.3;font-weight:600;white-space:nowrap">«я отписалась от flo premium и подписала мужа на своего бота по фазам цикла»</span><span style="color:#1D3DF0;font:500 12px/1 'DM Mono',monospace">05</span>
+        <span style="padding:0 22px;color:#1D3DF0;font-size:18px;line-height:1.3;font-weight:600;white-space:nowrap">«собрала для мамы домашнего доктора. скорее мини-оркестр из ролей»</span><span style="color:#1D3DF0;font:500 12px/1 'DM Mono',monospace">06</span>
+        <span style="padding:0 22px;font-size:18px;line-height:1.3;font-weight:600;white-space:nowrap">«я впервые что-то завайбкодила»</span><span style="color:#1D3DF0;font:500 12px/1 'DM Mono',monospace">07</span>
+        <span style="padding:0 22px;color:#1D3DF0;font-size:18px;line-height:1.3;font-weight:600;white-space:nowrap">«загрузила всё в codex и получила глубокий психологический анамнез»</span><span style="color:#1D3DF0;font:500 12px/1 'DM Mono',monospace">08</span>
+        <span style="padding:0 22px;font-size:18px;line-height:1.3;font-weight:600;white-space:nowrap">«он у меня сидит в телеграме. помнит контекст, если не лучше»</span><span style="color:#1D3DF0;font:500 12px/1 'DM Mono',monospace">09</span>
+        <span style="padding:0 22px;color:#1D3DF0;font-size:18px;line-height:1.3;font-weight:600;white-space:nowrap">«сегодня собрала себе бот для подсчёта калорий по фото. курс ещё не начался»</span><span style="color:#1D3DF0;font:500 12px/1 'DM Mono',monospace">10</span>
+        <span style="padding:0 22px;font-size:18px;line-height:1.3;font-weight:600;white-space:nowrap">«при правильных инструментах можно <span style="box-shadow:inset 0 -0.35em #BFF52E">очень быстро создавать</span>»</span><span style="color:#1D3DF0;font:500 12px/1 'DM Mono',monospace">11</span>
+        <span style="padding:0 22px"></span>
+      </div>
+      <div style="display:flex;align-items:center" aria-hidden="true">
+        <span style="padding:0 22px;font-size:18px;line-height:1.3;font-weight:600;white-space:nowrap">«с нулевым опытом программирования сделала удобный html-файл. месяцы не могла допроситься айтишников»</span><span style="color:#1D3DF0;font:500 12px/1 'DM Mono',monospace">01</span>
+        <span style="padding:0 22px;color:#1D3DF0;font-size:18px;line-height:1.3;font-weight:600;white-space:nowrap">«это мой первый в жизни сайт, и я чувствую себя капец взрослой»</span><span style="color:#1D3DF0;font:500 12px/1 'DM Mono',monospace">02</span>
+        <span style="padding:0 22px;font-size:18px;line-height:1.3;font-weight:600;white-space:nowrap">«за пару часов на выходных сделал коллектор вакансий со смарт-фильтром, работает вполне годно»</span><span style="color:#1D3DF0;font:500 12px/1 'DM Mono',monospace">03</span>
+        <span style="padding:0 22px;color:#1D3DF0;font-size:18px;line-height:1.3;font-weight:600;white-space:nowrap">«моё первое приложение, я в восторге. потратила час»</span><span style="color:#1D3DF0;font:500 12px/1 'DM Mono',monospace">04</span>
+        <span style="padding:0 22px;font-size:18px;line-height:1.3;font-weight:600;white-space:nowrap">«я отписалась от flo premium и подписала мужа на своего бота по фазам цикла»</span><span style="color:#1D3DF0;font:500 12px/1 'DM Mono',monospace">05</span>
+        <span style="padding:0 22px;color:#1D3DF0;font-size:18px;line-height:1.3;font-weight:600;white-space:nowrap">«собрала для мамы домашнего доктора. скорее мини-оркестр из ролей»</span><span style="color:#1D3DF0;font:500 12px/1 'DM Mono',monospace">06</span>
+        <span style="padding:0 22px;font-size:18px;line-height:1.3;font-weight:600;white-space:nowrap">«я впервые что-то завайбкодила»</span><span style="color:#1D3DF0;font:500 12px/1 'DM Mono',monospace">07</span>
+        <span style="padding:0 22px;color:#1D3DF0;font-size:18px;line-height:1.3;font-weight:600;white-space:nowrap">«загрузила всё в codex и получила глубокий психологический анамнез»</span><span style="color:#1D3DF0;font:500 12px/1 'DM Mono',monospace">08</span>
+        <span style="padding:0 22px;font-size:18px;line-height:1.3;font-weight:600;white-space:nowrap">«он у меня сидит в телеграме. помнит контекст, если не лучше»</span><span style="color:#1D3DF0;font:500 12px/1 'DM Mono',monospace">09</span>
+        <span style="padding:0 22px;color:#1D3DF0;font-size:18px;line-height:1.3;font-weight:600;white-space:nowrap">«сегодня собрала себе бот для подсчёта калорий по фото. курс ещё не начался»</span><span style="color:#1D3DF0;font:500 12px/1 'DM Mono',monospace">10</span>
+        <span style="padding:0 22px;font-size:18px;line-height:1.3;font-weight:600;white-space:nowrap">«при правильных инструментах можно <span style="box-shadow:inset 0 -0.35em #BFF52E">очень быстро создавать</span>»</span><span style="color:#1D3DF0;font:500 12px/1 'DM Mono',monospace">11</span>
+        <span style="padding:0 22px"></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="offer" style="display:grid;grid-template-columns:minmax(240px,.9fr) 1.6fr;border-bottom:3px solid #0C0F1E">
+  <div style="padding:clamp(36px,5vw,80px) clamp(20px,3vw,44px);border-right:1px solid #0C0F1E">
+    <div style="color:#1D3DF0;font:500 12px/1.2 'DM Mono',monospace;letter-spacing:.06em;text-transform:uppercase">gconf / поток 27 июля</div>
+    <h2 style="margin:16px 0 0;font:600 clamp(32px,4.4vw,60px)/1 Unbounded,sans-serif;letter-spacing:-.065em">вайбкодинг, агенты и <span style="box-shadow:inset 0 -0.35em #BFF52E">агентские процессы.</span></h2>
+  </div>
+  <div style="padding:clamp(36px,5vw,80px) clamp(20px,4vw,56px);align-self:end">
+    <p style="max-width:560px;margin:0;color:#2C3049;font-size:17px;line-height:1.46;font-weight:600">следующий поток — 3 недели практики, чтобы встроить актуальный ии-стек в свою жизнь и работу.</p>
+    <div style="max-width:560px;display:grid;grid-template-columns:repeat(2,1fr);gap:8px 20px;margin:24px 0 0;padding:14px 0;border-top:1px solid #0C0F1E;border-bottom:1px solid #0C0F1E">
+      <span style="color:#565B73;font:500 11px/1.38 'DM Mono',monospace;letter-spacing:.04em;text-transform:uppercase">старт<b style="display:block;margin-top:3px;color:#0C0F1E;font:700 15px/1.25 Onest,sans-serif;letter-spacing:0;text-transform:none">27 июля</b></span>
+      <span style="color:#565B73;font:500 11px/1.38 'DM Mono',monospace;letter-spacing:.04em;text-transform:uppercase">длительность<b style="display:block;margin-top:3px;color:#0C0F1E;font:700 15px/1.25 Onest,sans-serif;letter-spacing:0;text-transform:none">3 недели</b></span>
+      <span style="color:#565B73;font:500 11px/1.38 'DM Mono',monospace;letter-spacing:.04em;text-transform:uppercase">участие<b style="display:block;margin-top:3px;color:#0C0F1E;font:700 15px/1.25 Onest,sans-serif;letter-spacing:0;text-transform:none">$650 / 52 000 ₽</b></span>
+      <span style="color:#565B73;font:500 11px/1.38 'DM Mono',monospace;letter-spacing:.04em;text-transform:uppercase">доступы<b style="display:block;margin-top:3px;color:#0C0F1E;font:700 15px/1.25 Onest,sans-serif;letter-spacing:0;text-transform:none">навсегда</b></span>
+      <span style="grid-column:1/-1;color:#565B73;font:500 11px/1.38 'DM Mono',monospace;letter-spacing:.04em;text-transform:uppercase">стек<b style="display:block;margin-top:3px;color:#0C0F1E;font:700 15px/1.25 Onest,sans-serif;letter-spacing:0;text-transform:none">codex · claude code · openclaw · hermes</b></span>
+    </div>
+    <a href="https://t.me/gptconf_bot?start=agentic_flow_buy" target="_blank" rel="noreferrer" style="display:inline-flex;align-items:center;gap:28px;margin-top:26px;padding:16px 20px;background:#1D3DF0;color:#fff;font:700 13px/1 'DM Mono',monospace;letter-spacing:.04em;text-decoration:none;text-transform:uppercase;transition:background .18s ease" style-hover="background:#0C0F1E">выбрать участие ↗</a>
+  </div>
+</section>
+
+<footer data-screen-label="closing" style="background:#0C0F1E;color:#F4F5FB;padding:clamp(50px,7vw,100px) clamp(20px,4vw,56px) 40px">
+  <h2 style="max-width:940px;margin:0;font:600 clamp(30px,4.2vw,58px)/1 Unbounded,sans-serif;letter-spacing:-.065em">«ии высвобождает много времени, чтобы <span style="color:#BFF52E">просто жить.</span> и это круто»</h2>
+  <p style="margin:20px 0 0;color:#7C92FF;font:500 11px/1.35 'DM Mono',monospace;letter-spacing:.06em;text-transform:uppercase">цитата участника</p>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:30px;margin-top:80px;padding-top:15px;border-top:1px solid rgba(244,245,251,.25)">
+    <p style="margin:0;color:#8A93B8;font-size:12px;line-height:1.48">ещё по теме — как мы сами собираем агентные процессы, что прошли за 3,5 года и какие результаты получают участники.</p>
+    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:8px 20px">
+      <a href="https://t.me/gptlovers/1029" target="_blank" rel="noreferrer" style="color:#F4F5FB;font:500 11px/1.35 'DM Mono',monospace;text-decoration-color:rgba(244,245,251,.35);text-underline-offset:4px" style-hover="color:#BFF52E">openclaw / hermes: ai-операционка ↗</a>
+      <a href="https://t.me/gptlovers/1020" target="_blank" rel="noreferrer" style="color:#F4F5FB;font:500 11px/1.35 'DM Mono',monospace;text-decoration-color:rgba(244,245,251,.35);text-underline-offset:4px" style-hover="color:#BFF52E">от chatgpt до агентов за 3,5 года ↗</a>
+      <a href="https://t.me/gptlovers/1028" target="_blank" rel="noreferrer" style="color:#F4F5FB;font:500 11px/1.35 'DM Mono',monospace;text-decoration-color:rgba(244,245,251,.35);text-underline-offset:4px" style-hover="color:#BFF52E">истории участников ↗</a>
+      <a href="https://t.me/gptlovers/1003" target="_blank" rel="noreferrer" style="color:#F4F5FB;font:500 11px/1.35 'DM Mono',monospace;text-decoration-color:rgba(244,245,251,.35);text-underline-offset:4px" style-hover="color:#BFF52E">кейсы участников ↗</a>
+    </div>
+  </div>
+</footer>
+
+<script>document.querySelectorAll('.maturity-toggle').forEach(x=>x.addEventListener('change',()=>{const n=document.querySelectorAll('.maturity-toggle:checked').length;document.querySelector('#score').textContent=n+' / 9';const c=n===0?'вы ускоряете мышление. первый сдвиг — перестать оставлять результат в чате и собрать один используемый артефакт.':n<=2?'вы ускоряете производство. следующий шаг — соединить артефакты в один повторяемый процесс с критериями готовности.':n<=5?'вы уже делегируете действия. теперь нужен мандат: цель, границы, инструменты, лимиты, запреты, эскалации, логи и ответственный.':n<=8?'вы меняете операционку. следующий узел — превратить лучшие процессы в готовые сценарии и командную память.':'у вас появляется управление процессом: агенту дали проверяемый мандат. теперь следите за качеством решений, скоростью цикла и экономикой.';document.querySelector('#score-copy').textContent=c;}));</script></body></html>

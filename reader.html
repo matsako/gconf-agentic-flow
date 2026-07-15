@@ -3,63 +3,87 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>gconf — agentic flow / редакционная версия</title>
+  <title>gconf — за последнюю неделю изменилось всё</title>
+  <meta name="description" content="семь обновлений, которые изменят представление о текущем уровне развития агентов">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='50' fill='%231d3df0'/><text x='50' y='68' text-anchor='middle' font-size='58' font-family='serif' font-weight='700' fill='white'>g</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Onest:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    html,body,iframe{margin:0;width:100%;height:100%;border:0;background:#f7f4ee}
-    iframe{display:block;height:100vh}
+    :root{--ink:#17181d;--muted:#656974;--line:#e5e5e5;--blue:#1d3df0;--lime:#bff52e;--paper:#fff}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Georgia,'Times New Roman',serif;-webkit-font-smoothing:antialiased}
+    a{color:var(--blue);text-underline-offset:3px}.progress{position:fixed;z-index:20;top:0;left:0;width:0;height:3px;background:var(--blue)}
+    .masthead{position:relative;z-index:10;height:58px;border-bottom:1px solid var(--line);background:rgba(255,255,255,.94);backdrop-filter:blur(12px)}.masthead-inner{max-width:1080px;height:100%;margin:auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between}.brand{font:700 17px/1 Onest,sans-serif;color:var(--blue);text-decoration:none}.edition{font:500 11px/1 DM Mono,monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+    .article{width:min(720px,calc(100% - 40px));margin:0 auto}.hero{padding:76px 0 58px;border-bottom:1px solid var(--line);animation:rise .55s ease both}.kicker,.chapter{font:500 12px/1.35 DM Mono,monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--blue)}h1{margin:20px 0 24px;font:650 clamp(48px,6vw,74px)/1.02 Onest,sans-serif;letter-spacing:-.065em}.dek{margin:0;color:var(--muted);font-size:22px;line-height:1.5}.byline{display:flex;gap:12px;align-items:center;margin-top:30px;color:var(--muted);font:500 12px/1.4 Onest,sans-serif}.avatar{display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--blue);color:#fff;font:700 12px/1 DM Mono,monospace}
+    .story-section{padding:54px 0;border-bottom:1px solid var(--line)}.story-section h2{margin:15px 0 24px;font:650 34px/1.16 Onest,sans-serif;letter-spacing:-.045em}.story-section p,.story-section li{font-size:20px;line-height:1.68}.story-section p{margin:0 0 22px}.story-section ul,.story-section ol{margin:22px 0;padding-left:24px}.story-section li{margin:10px 0}.story-section li::marker{color:var(--blue)}.story-section strong,.story-section b{font-family:Onest,sans-serif;font-weight:650}.story-section figure{margin:34px 0}.story-section img{display:block;width:100%;height:auto;border:1px solid #d8d8d8}.story-section figcaption{margin-top:10px;color:var(--muted);font:500 11px/1.45 DM Mono,monospace;text-transform:uppercase;letter-spacing:.04em}.takeaway{margin:30px 0 0;padding:2px 0 2px 20px;border-left:3px solid var(--blue);color:#333;font-size:17px;line-height:1.55}.takeaway b{display:block;margin-bottom:5px;color:var(--blue);font:500 11px/1.3 DM Mono,monospace;text-transform:uppercase;letter-spacing:.08em}.takeaway br{display:none}.term{color:var(--blue);border-bottom:1px dotted var(--blue);cursor:help}
+    .maturity{padding:60px 0;border-bottom:1px solid var(--line)}.maturity h2,.meta-section h2{margin:15px 0 18px;font:650 38px/1.12 Onest,sans-serif;letter-spacing:-.05em}.maturity-intro{color:var(--muted);font-size:19px;line-height:1.55}.baseline{margin-top:34px;padding:18px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.baseline h3{margin:0 0 8px;font:650 20px/1.2 Onest,sans-serif}.baseline p{margin:0;color:var(--muted);font-size:16px;line-height:1.5}.level{display:grid;grid-template-columns:28px 1fr;gap:16px;padding:22px 0;border-bottom:1px solid var(--line);cursor:pointer}.level input{position:absolute;opacity:0}.check{width:22px;height:22px;border:1.5px solid var(--blue);transition:.15s}.level:has(input:checked) .check{background:var(--blue);box-shadow:inset 0 0 0 5px #fff}.level h3{margin:0 0 6px;font:650 20px/1.2 Onest,sans-serif}.level p{margin:0;color:var(--muted);font-size:16px;line-height:1.48}.score{margin-top:22px;padding:20px;background:#17181d;color:#fff}.score strong{display:block;margin-bottom:8px;color:var(--lime);font:500 12px/1 DM Mono,monospace}.score p{margin:0;font:600 18px/1.4 Onest,sans-serif}
+    .meta-section{padding:60px 0;border-bottom:1px solid var(--line)}.meta-section>p{font-size:20px;line-height:1.65}.meta-item{padding:28px 0;border-top:1px solid var(--line)}.meta-item h3{margin:8px 0 12px;font:650 25px/1.15 Onest,sans-serif}.meta-item p{margin:0;color:var(--muted);font-size:18px;line-height:1.58}
+    .offer{margin:64px 0;padding:38px 0;border-top:3px solid var(--blue);border-bottom:1px solid var(--line)}.offer h2{margin:0 0 18px;font:650 36px/1.12 Onest,sans-serif;letter-spacing:-.05em}.offer p{font-size:19px;line-height:1.55}.offer-facts{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:26px 0}.fact{padding:12px 0;border-top:1px solid var(--line);font:500 12px/1.4 DM Mono,monospace;color:var(--muted)}.fact b{display:block;margin-top:3px;color:var(--ink);font:650 17px/1.25 Onest,sans-serif}.button{display:inline-flex;margin-top:10px;padding:16px 20px;background:var(--blue);color:#fff;text-decoration:none;font:650 14px/1 Onest,sans-serif}.footer{padding:0 0 80px}.footer blockquote{margin:0;font:650 31px/1.23 Onest,sans-serif;letter-spacing:-.04em}.footer blockquote span{color:var(--blue)}.footer small{display:block;margin-top:12px;color:var(--muted);font:500 11px/1.4 DM Mono,monospace;text-transform:uppercase}.related{display:grid;gap:8px;margin-top:38px}.related a{font:500 14px/1.45 Onest,sans-serif}
+    .loading{padding:100px 0;color:var(--muted);font:500 14px/1.5 DM Mono,monospace}@keyframes rise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+    @media(max-width:680px){.masthead{height:52px}.edition{display:none}.article{width:min(100% - 32px,720px)}.hero{padding:52px 0 38px}h1{font-size:43px}.dek{font-size:19px}.story-section,.maturity,.meta-section{padding:42px 0}.story-section h2{font-size:29px}.story-section p,.story-section li{font-size:18px;line-height:1.62}.offer-facts{grid-template-columns:1fr}.footer blockquote{font-size:27px}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.hero{animation:none}}
   </style>
 </head>
 <body>
-  <iframe id="article" src="./index.html" title="agentic flow — редакционная версия"></iframe>
+  <div class="progress" id="progress"></div>
+  <header class="masthead"><div class="masthead-inner"><a class="brand" href="./">gconf</a><span class="edition">agentic flow · 15 июля 2026</span></div></header>
+  <main class="article" id="article"><p class="loading">собираем статью…</p></main>
   <script>
-    const frame=document.querySelector('#article');
-    frame.addEventListener('load',()=>{
-      const doc=frame.contentDocument;
-      const style=doc.createElement('style');
-      style.textContent=`
-        html,body{background:#f7f4ee!important;color:#202124!important}
-        .research-reading{max-width:1260px!important;grid-template-columns:minmax(0,840px) 300px!important;gap:42px!important;padding:56px 28px 100px!important}
-        .reading-paper{border:1px solid #ded7ca!important;box-shadow:0 24px 60px rgba(58,46,30,.08)!important;overflow:hidden!important}
-        .reader-intro{padding:72px 72px 52px;border-bottom:1px solid #ded7ca}.reader-intro .eyebrow{margin:0 0 22px;color:#1D3DF0;font:500 13px/1.2 'DM Mono',monospace;letter-spacing:.12em;text-transform:uppercase}.reader-intro h1{max-width:730px;margin:0;font:600 clamp(48px,5.2vw,74px)/1.05 Onest,Arial,sans-serif;letter-spacing:-.065em;color:#202124}.reader-intro .lead{max-width:700px;margin:30px 0 0;font:400 22px/1.62 Onest,Arial,sans-serif;color:#282a2f}
-        .research-toc{top:24px!important;border-color:#ded7ca!important;background:rgba(255,253,248,.92)!important;padding:22px 18px!important}
-        .research-toc .toc-kicker,.research-toc a.is-active,.term{color:#1D3DF0!important}
-        .research-toc a{color:#315b68!important;font:500 14px/1.38 Onest,Arial,sans-serif!important;padding:8px 0!important}
-        .reading-paper>header{display:none!important}.reading-paper>header>div:nth-child(5){padding:64px 72px 20px!important}
-        .reading-paper>header h1{font-size:clamp(46px,5.1vw,72px)!important;line-height:1.08!important;letter-spacing:-.06em!important}
-        .reading-paper>header>div:nth-child(6){padding:0 72px 52px!important}
-        .reading-paper>header>div:nth-child(6) p{max-width:700px!important;font-size:20px!important;line-height:1.58!important}
-        .reading-paper [data-screen-label="opening"]{padding:52px 72px!important}
-        .reading-paper [data-screen-label="opening"] h2{font-family:Onest,Arial,sans-serif!important;font-size:31px!important;line-height:1.26!important;letter-spacing:-.04em!important}
-        .reading-paper [data-screen-label="opening"]>div:nth-child(2){font-size:20px!important;line-height:1.72!important}
-        .reading-paper [data-screen-label="updates"] article{padding:56px 72px!important;border-top:1px solid #ded7ca!important}
-        .reading-paper [data-screen-label="updates"] article>div:first-child{display:none!important}
-        .reading-paper [data-screen-label="updates"] article>div:nth-child(2) h3{font-family:Onest,Arial,sans-serif!important;font-size:34px!important;line-height:1.2!important;letter-spacing:-.045em!important;margin:0 0 22px!important}
-        .reading-paper [data-screen-label="updates"] article>div:nth-child(2) p,.reading-paper [data-screen-label="updates"] article>div:nth-child(2) li{max-width:700px!important;font-size:20px!important;line-height:1.7!important;color:#282a2f!important}
-        .reading-paper [data-screen-label="updates"] article>div:nth-child(2) ul,.reading-paper [data-screen-label="updates"] article>div:nth-child(2) ol{margin:22px 0!important}
-        .reading-paper [data-screen-label="updates"] article aside{max-width:700px!important;margin:28px 0 0!important;padding:16px 18px!important;background:transparent!important;border-left:3px solid #1D3DF0!important;font-size:15px!important;line-height:1.55!important}
-        .reading-paper [data-screen-label="updates"] figure{max-width:700px!important}
-        .reading-paper [data-screen-label="updates"] figure>div:has(.gconf-shot){height:auto!important;aspect-ratio:16/10!important}
-        .reading-paper [data-screen-label="updates"] .gconf-shot{height:auto!important;aspect-ratio:16/10!important;object-fit:cover!important}
-        .reading-paper>[data-screen-label="cut"]{padding:48px 72px!important;background:#fff!important;color:#202124!important;border-top:1px solid #ded7ca!important}
-        .reading-paper>[data-screen-label="cut"] p{font:600 32px/1.22 Onest,Arial,sans-serif!important;color:#202124!important}
-        .reading-paper>#test>div:first-child>div,.reading-paper>#test>div:nth-child(2),.reading-paper .maturity-row,.reading-paper>#test>div:last-child,.reading-paper>[data-screen-label="meta-skill"]>div{padding-left:72px!important;padding-right:72px!important}
-        .reading-paper>#test>div:first-child h2,.reading-paper>[data-screen-label="meta-skill"] h2{font-family:Onest,Arial,sans-serif!important;font-size:36px!important;line-height:1.18!important;letter-spacing:-.045em!important}
-        .reading-paper .maturity-row{grid-template-columns:22px 66px 230px minmax(0,1fr)!important;padding-top:18px!important;padding-bottom:18px!important}
-        .reading-paper .maturity-row h3{font-family:Onest,Arial,sans-serif!important;font-size:18px!important}.reading-paper .maturity-row p{font-size:15px!important;line-height:1.48!important}
-        /* substack-like reader: one quiet column, no product chrome */
-        html,body{background:#fff!important}.research-reading{display:block!important;max-width:720px!important;margin:0 auto!important;padding:0 24px 96px!important}.reading-paper{border:0!important;box-shadow:none!important;overflow:visible!important}.research-toc{display:none!important}.reader-intro{padding:72px 0 42px!important;border-bottom:1px solid #e6e6e6!important}.reader-intro .eyebrow{color:#1D3DF0!important;font-size:12px!important}.reader-intro h1{font-size:58px!important;line-height:1.02!important;letter-spacing:-.06em!important}.reader-intro .lead{margin-top:24px!important;font:400 21px/1.48 Georgia,serif!important;color:#565B73!important}.reading-paper [data-screen-label="opening"],.reading-paper [data-screen-label="updates"] article{padding:46px 0!important;border-top:0!important;border-bottom:1px solid #e6e6e6!important}.reading-paper [data-screen-label="opening"] h2,.reading-paper [data-screen-label="updates"] article>div:nth-child(2) h3{font:600 31px/1.18 Onest,Arial,sans-serif!important;letter-spacing:-.045em!important}.reading-paper [data-screen-label="opening"]>div:nth-child(2),.reading-paper [data-screen-label="updates"] article>div:nth-child(2) p,.reading-paper [data-screen-label="updates"] article>div:nth-child(2) li{max-width:680px!important;font:400 20px/1.62 Georgia,serif!important;color:#202124!important}.reading-paper [data-screen-label="updates"] article aside{max-width:680px!important;margin:28px 0 0!important;padding:0 0 0 18px!important;border-left:2px solid #1D3DF0!important;background:transparent!important;font:400 16px/1.5 Georgia,serif!important}.reading-paper>[data-screen-label="cut"]{padding:46px 0!important;background:#fff!important;border-bottom:1px solid #e6e6e6!important}.reading-paper>[data-screen-label="cut"] p{font:600 30px/1.24 Onest,Arial,sans-serif!important}.reading-paper>#test>div:first-child>div,.reading-paper>#test>div:nth-child(2),.reading-paper .maturity-row,.reading-paper>#test>div:last-child,.reading-paper>[data-screen-label="meta-skill"]>div{padding-left:0!important;padding-right:0!important}.reading-paper>[data-screen-label="meta-skill"]>div:last-child{grid-template-columns:1fr!important}.reading-paper .maturity-row{grid-template-columns:22px 60px 1fr!important}.reading-paper .maturity-row p{grid-column:3!important}.reading-paper>[data-screen-label="stories"]{display:none!important}
-        @media(max-width:980px){.research-reading{display:block!important;padding:0!important}.reading-paper{border:0!important;box-shadow:none!important}.research-toc{position:static!important}.reader-intro,.reading-paper>header>div:nth-child(5),.reading-paper>header>div:nth-child(6),.reading-paper [data-screen-label="opening"],.reading-paper [data-screen-label="updates"] article,.reading-paper>[data-screen-label="cut"]{padding-left:24px!important;padding-right:24px!important}.reader-intro{padding-top:48px!important;padding-bottom:38px!important}.reader-intro .lead{font-size:19px!important}.reading-paper [data-screen-label="updates"] article>div:nth-child(2) h3{font-size:28px!important}.reading-paper [data-screen-label="updates"] article>div:nth-child(2) p,.reading-paper [data-screen-label="updates"] article>div:nth-child(2) li{font-size:18px!important}.reading-paper>#test>div:first-child>div,.reading-paper>#test>div:nth-child(2),.reading-paper .maturity-row,.reading-paper>#test>div:last-child,.reading-paper>[data-screen-label="meta-skill"]>div{padding-left:24px!important;padding-right:24px!important}.reading-paper .maturity-row{grid-template-columns:22px 1fr!important}}
-      `;
-      doc.head.append(style);
-      const paper=doc.querySelector('.reading-paper');
-      const header=paper.querySelector('header');
-      if(header){
-        const intro=doc.createElement('section');
-        intro.className='reader-intro';
-        intro.innerHTML='<p class="eyebrow">gconf / agentic flow / long read</p><h1>за последнюю неделю изменилось всё.</h1><p class="lead">chatgpt work, codex, gpt live, fable и gpt-5.6 — что изменилось в мире агентов и что это значит для каждого из нас.</p>';
-        paper.insertBefore(intro,header);
-      }
-    });
+    const article=document.querySelector('#article');
+    const clean=node=>{const copy=node.cloneNode(true);copy.querySelectorAll('[style],script,link').forEach(el=>{el.removeAttribute('style');if(el.tagName==='SCRIPT'||el.tagName==='LINK')el.remove()});copy.removeAttribute?.('style');return copy};
+    const text=node=>node?.textContent.trim()||'';
+    const chapter=(num,label)=>`<span class="chapter">${String(num).padStart(2,'0')} / ${label}</span>`;
+    const scoreCopy=n=>n===0?'вы ускоряете мышление. первый сдвиг — собрать один используемый результат.':n<=2?'вы ускоряете производство. следующий шаг — соединить результаты в повторяемый процесс.':n<=5?'вы уже делегируете действия. теперь нужны границы, доступы и правила.':n<=8?'вы меняете операционку. следующий узел — командная память и готовые сценарии.':'у вас появляется управление процессом: агент действует внутри правил, человек подключается в точках решений.';
+
+    async function build(){
+      const html=await fetch('./index.html',{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error('source unavailable');return r.text()});
+      const src=new DOMParser().parseFromString(html,'text/html');
+      article.innerHTML='';
+
+      article.insertAdjacentHTML('beforeend',`<section class="hero"><span class="kicker">gconf / agentic flow / long read</span><h1>за последнюю неделю изменилось всё.</h1><p class="dek">chatgpt work, codex, gpt live, fable и gpt-5.6 — что изменилось в мире агентов и что это значит для каждого из нас.</p><div class="byline"><span class="avatar">g</span><span>gconf · 7 обновлений · 18 минут чтения</span></div></section>`);
+
+      const opening=src.querySelector('[data-screen-label="opening"]');
+      const openingSection=document.createElement('section');openingSection.className='story-section';
+      const openingTitle=opening.querySelector('h2');openingSection.innerHTML=chapter(0,'поворот');
+      const h2=document.createElement('h2');h2.textContent=text(openingTitle);openingSection.append(h2);
+      const openingCopy=opening.querySelector('div:nth-child(2)');[...openingCopy.children].forEach(el=>openingSection.append(clean(el)));article.append(openingSection);
+
+      [...src.querySelectorAll('[data-screen-label="updates"] > article')].forEach((source,index)=>{
+        const section=document.createElement('section');section.className='story-section';section.id=`chapter-${index+1}`;section.innerHTML=chapter(index+1,'обновление');
+        const content=source.querySelector(':scope > div:nth-child(2)');
+        const title=content.querySelector('h3');const heading=document.createElement('h2');heading.textContent=text(title);section.append(heading);
+        [...content.children].filter(el=>el!==title).forEach(el=>section.append(clean(el)));
+        const aside=source.querySelector(':scope > aside');if(aside){const note=clean(aside);note.className='takeaway';section.append(note)}
+        article.append(section);
+      });
+
+      const maturitySource=src.querySelector('#test');
+      const maturity=document.createElement('section');maturity.className='maturity';maturity.id='maturity';
+      maturity.innerHTML=`${chapter(8,'карта зрелости')}<h2>как понять, на каком слое вы находитесь</h2><p class="maturity-intro">отметьте каждый слой, который уже работает у вас. не теория — реальный контур жизни или работы.</p>`;
+      const baselineSource=maturitySource.querySelector(':scope > div:nth-child(2)');
+      maturity.insertAdjacentHTML('beforeend',`<div class="baseline"><h3>${text(baselineSource.querySelector('h3'))}</h3><p>${text(baselineSource.querySelector('p'))}</p></div>`);
+      [...maturitySource.querySelectorAll('.maturity-row')].forEach((row,index)=>{const label=document.createElement('label');label.className='level';label.innerHTML=`<input type="checkbox"><span class="check"></span><div><h3>${text(row.querySelector('h3'))}</h3><p>${text(row.querySelector('p .maturity-copy')||row.querySelector('p'))}</p></div>`;maturity.append(label)});
+      maturity.insertAdjacentHTML('beforeend','<div class="score"><strong id="score">0 / 9</strong><p id="score-copy">'+scoreCopy(0)+'</p></div>');article.append(maturity);
+
+      const metaSource=src.querySelector('[data-screen-label="meta-skill"]');
+      const meta=document.createElement('section');meta.className='meta-section';meta.innerHTML=`${chapter(9,'мета-навыки')}<h2>${text(metaSource.querySelector('h2'))}</h2>`;
+      metaSource.querySelectorAll(':scope > div:nth-child(2) > p').forEach(p=>meta.append(clean(p)));
+      metaSource.querySelectorAll('article').forEach(item=>{const block=document.createElement('div');block.className='meta-item';block.innerHTML=`<span class="chapter">${text(item.querySelector('span'))}</span><h3>${text(item.querySelector('h3'))}</h3><p>${text(item.querySelector('p'))}</p>`;meta.append(block)});article.append(meta);
+
+      const offerSource=src.querySelector('[data-screen-label="offer"]');
+      const offer=document.createElement('section');offer.className='offer';offer.innerHTML=`<h2>${text(offerSource.querySelector('h2'))}</h2><p>${text(offerSource.querySelector(':scope > div:nth-child(2) > p'))}</p><div class="offer-facts"></div>`;
+      offerSource.querySelectorAll(':scope > div:nth-child(2) > div span').forEach(span=>{const fact=document.createElement('div');fact.className='fact';fact.innerHTML=clean(span).innerHTML;offer.querySelector('.offer-facts').append(fact)});
+      const sourceButton=offerSource.querySelector('a');const button=document.createElement('a');button.className='button';button.href=sourceButton.href;button.target='_blank';button.textContent=text(sourceButton);offer.append(button);article.append(offer);
+
+      const footerSource=src.querySelector('footer');const footer=document.createElement('footer');footer.className='footer';
+      const quote=text(footerSource.querySelector('h2')).replace(/^«|»$/g,'');footer.innerHTML=`<blockquote>«${quote.replace('просто жить.','<span>просто жить.</span>')}»</blockquote><small>цитата участника</small><div class="related"></div>`;
+      footerSource.querySelectorAll('a').forEach(a=>{const link=document.createElement('a');link.href=a.href;link.target='_blank';link.textContent=text(a);footer.querySelector('.related').append(link)});article.append(footer);
+
+      const updateScore=()=>{const n=document.querySelectorAll('.level input:checked').length;document.querySelector('#score').textContent=`${n} / 9`;document.querySelector('#score-copy').textContent=scoreCopy(n)};
+      document.querySelectorAll('.level input').forEach(input=>input.addEventListener('change',updateScore));
+    }
+    build().catch(()=>{article.innerHTML='<p class="loading">не удалось загрузить статью. обновите страницу.</p>'});
+    addEventListener('scroll',()=>{const max=document.documentElement.scrollHeight-innerHeight;document.querySelector('#progress').style.width=`${max>0?scrollY/max*100:0}%`},{passive:true});
   </script>
 </body>
 </html>

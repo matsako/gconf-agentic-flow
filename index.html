@@ -45,6 +45,22 @@ img.gconf-shot{display:block;width:100%;aspect-ratio:16/10;object-fit:cover;bord
   [data-screen-label="updates"] article aside{grid-column:auto!important;padding:20px!important;border-top:1px solid #0C0F1E}
 }
 </style></head>
+<style>
+html{background:#f7f4ee!important}body{background:#f7f4ee!important}
+.reading-paper>header{min-height:0!important;display:block!important;border:0!important;background:#fff!important;overflow:visible!important}
+.reading-paper>header>div:nth-child(-n+4){display:none!important}
+.reading-paper>header>div:nth-child(5){display:block!important;position:relative!important;padding:68px 72px 30px!important;background:#fff!important}
+.reading-paper>header>div:nth-child(5)>div{margin-bottom:26px!important;color:#1D3DF0!important;font-size:12px!important}
+.reading-paper>header h1{max-width:900px!important;font:600 clamp(48px,5.2vw,82px)/1.04 Unbounded,sans-serif!important;letter-spacing:-.075em!important;color:#0C0F1E!important}
+.reading-paper>header h1::first-letter{color:#1D3DF0}
+.reading-paper>header>div:nth-child(6){display:block!important;position:relative!important;border-top:0!important;background:#fff!important;padding:0 72px 56px!important}
+.reading-paper>header>div:nth-child(6) p{max-width:760px!important;margin:0 0 18px!important;padding:0!important;border:0!important;font-size:20px!important;line-height:1.52!important;color:#2C3049!important}
+.reading-paper>header>div:nth-child(6) p:nth-child(2){display:none!important}.reading-paper>header>div:nth-child(6) a{display:none!important}
+.reading-paper [data-screen-label="opening"]{display:block!important;border-top:1px solid rgba(12,15,30,.16)!important;padding:56px 72px!important}
+.reading-paper [data-screen-label="opening"]>div{padding:0!important;border:0!important}.reading-paper [data-screen-label="opening"] h2{max-width:780px!important;margin:0 0 24px!important;font:600 clamp(27px,3vw,43px)/1.14 Unbounded,sans-serif!important;letter-spacing:-.065em!important}.reading-paper [data-screen-label="opening"]>div:nth-child(2){max-width:760px!important;font-size:19px!important;line-height:1.62!important}
+.reading-paper [data-screen-label="updates"] article{display:block!important;border-top:1px solid rgba(12,15,30,.16)!important;border-bottom:0!important;padding:52px 72px!important}.reading-paper [data-screen-label="updates"] article>div:first-child{display:flex!important;align-items:baseline!important;gap:12px!important;padding:0 0 18px!important;border:0!important}.reading-paper [data-screen-label="updates"] article>div:first-child>div:first-child{font-size:34px!important}.reading-paper [data-screen-label="updates"] article>div:nth-child(2){padding:0!important;border:0!important}.reading-paper [data-screen-label="updates"] article>div:nth-child(2) h3{max-width:760px!important;font:600 clamp(27px,3vw,43px)/1.13 Unbounded,sans-serif!important;letter-spacing:-.065em!important}.reading-paper [data-screen-label="updates"] article>div:nth-child(2) p,.reading-paper [data-screen-label="updates"] article>div:nth-child(2) li{max-width:760px!important;font-size:18px!important;line-height:1.62!important}.reading-paper [data-screen-label="updates"] article aside{max-width:760px!important;margin:28px 0 0!important;padding:18px 20px!important;border-left:3px solid #1D3DF0!important;background:#f2f4fb!important;font-size:14px!important;line-height:1.55!important}.reading-paper [data-screen-label="updates"] article figure{max-width:760px!important}
+@media(max-width:980px){.reading-paper>header>div:nth-child(5),.reading-paper>header>div:nth-child(6),.reading-paper [data-screen-label="opening"],.reading-paper [data-screen-label="updates"] article{padding-left:24px!important;padding-right:24px!important}.reading-paper>header>div:nth-child(5){padding-top:48px!important}.reading-paper>header>div:nth-child(6) p,.reading-paper [data-screen-label="opening"]>div:nth-child(2),.reading-paper [data-screen-label="updates"] article>div:nth-child(2) p,.reading-paper [data-screen-label="updates"] article>div:nth-child(2) li{font-size:17px!important}.reading-paper>header h1{font-size:clamp(42px,10vw,66px)!important}}
+</style>
 <body>
 
 
@@ -468,7 +484,7 @@ img.gconf-shot{display:block;width:100%;aspect-ratio:16/10;object-fit:cover;bord
   </div>
   <div style="position:relative;padding:8vh clamp(20px,4vw,56px) 6vh">
     <div style="color:#1D3DF0;font:500 12px/1 'DM Mono',monospace;letter-spacing:.28em;text-transform:uppercase;margin-bottom:30px">agentic / flow / 2026</div>
-    <h1 style="max-width:1150px;margin:0;font:600 clamp(44px,7.6vw,104px)/.94 Unbounded,sans-serif;letter-spacing:-.07em;text-transform:lowercase">за последнюю<br>неделю <span style="color:#1D3DF0">изменилось<br>всё.</span></h1>
+    <h1 style="max-width:1150px;margin:0;font:600 clamp(44px,7.6vw,104px)/.94 Unbounded,sans-serif;letter-spacing:-.07em;text-transform:lowercase"><span style="color:#1D3DF0">#</span> за последнюю<br>неделю изменилось<br><span style="color:#1D3DF0">всё.</span></h1>
   </div>
   <div style="position:relative;display:grid;grid-template-columns:1fr 1fr 1fr;border-top:1px solid #0C0F1E;background:#FFFFFF">
     <p style="margin:0;padding:20px clamp(20px,4vw,56px) 24px 20px;border-right:1px solid #0C0F1E;font-size:15px;line-height:1.4;font-weight:600">chatgpt work, codex, gpt live, fable, gpt-5.6 — что изменилось в мире агентов и что это значит для каждого из нас.</p>
@@ -713,6 +729,9 @@ img.gconf-shot{display:block;width:100%;aspect-ratio:16/10;object-fit:cover;bord
 document.querySelectorAll('.maturity-toggle').forEach(x=>x.addEventListener('change',()=>{const n=document.querySelectorAll('.maturity-toggle:checked').length;document.querySelector('#score').textContent=n+' / 9';const c=n===0?'вы ускоряете мышление. первый сдвиг — перестать оставлять результат в чате и собрать один используемый артефакт.':n<=2?'вы ускоряете производство. следующий шаг — соединить артефакты в один повторяемый процесс с критериями готовности.':n<=5?'вы уже делегируете действия. теперь нужен мандат: цель, границы, инструменты, лимиты, запреты, эскалации, логи и ответственный.':n<=8?'вы меняете операционку. следующий узел — превратить лучшие процессы в готовые сценарии и командную память.':'у вас появляется управление процессом: агенту дали проверяемый мандат. теперь следите за качеством решений, скоростью цикла и экономикой.';document.querySelector('#score-copy').textContent=c;}));
 
 const toc=document.querySelector('#article-toc');
+const articleHeader=document.querySelector('header[data-screen-label="hero"]');
+const articlePaper=document.querySelector('.reading-paper');
+if(articleHeader&&articlePaper){articlePaper.prepend(articleHeader);}
 const headings=[...document.querySelectorAll('#read [data-screen-label="updates"] h3')];
 headings.forEach((heading,index)=>{
   const id=`update-${index+1}`;
